@@ -51,10 +51,11 @@ def generate_neighbor( house : np.ndarray ) -> np.ndarray :
             
             new_position = np.random.randint( 0, 8 )
 
-            while new_position == house[i]:
+            while new_position == house[ i ]:
+                
                 new_position = np.random.randint( 0, 8 )
             
-            house[i] = new_position
+            house[ i ] = new_position
     
     return house
 
@@ -82,22 +83,21 @@ def random_restart_hill_climbing_queen( ini_pos : np.ndarray, func_cost, max : i
             neighbor = generate_neighbor( solution.copy() )
 
             if func_cost( neighbor ) < func_cost( solution ):
+
                 solution = neighbor.copy()
-                
 
             i += 1
 
         if func_cost( solution ) < func_cost( best ):
-            best = solution.copy()
-            
 
+            best = solution.copy()
 
         time += 1
+
+        solution = np.random.randint( 0, 8, 8 )
 
     return best
 
 solution = random_restart_hill_climbing_queen( Vector, var_cost, 100 )
-
-#print(id(Vector), "\n",id(solution))
 
 print( "Vector resultado: ", solution, "\nCosto asociado: ", var_cost( solution ) )
