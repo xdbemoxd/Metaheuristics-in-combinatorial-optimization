@@ -1,3 +1,5 @@
+#N queens
+
 import numpy as np
 
 Vector = np.array( [ 6, 6, 2, 0, 1, 2, 6, 1 ] )

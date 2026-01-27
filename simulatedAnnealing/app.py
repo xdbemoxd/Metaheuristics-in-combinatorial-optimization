@@ -1,3 +1,5 @@
+#N queens
+
 import numpy as np
 
 Vector = np.array( [ 6, 6, 2, 0, 1, 2, 6, 1 ] );
@@ -50,7 +52,7 @@ def total_cost( house : np.ndarray ) -> int:
 
 def probability_function( solution_status : np.ndarray ) -> float :
 
-    EPSILON = 1e-9
+    EPSILON = 1e-9;
 
     number = np.log( 1 + solution_status.var() ) / np.log( 2 );
     
@@ -64,7 +66,7 @@ def simulated_annealing_queen( ini_pos : np.ndarray ) -> np.ndarray:
     solution : np.ndarray = ini_pos.copy();
     solution_status = np.zeros( 2, dtype = int );
     time : int = 20;
-    global_time : int = 500
+    global_time : int = 500;
 
     while( total_cost( solution ) != 0 and global_time > 1 ):
 
